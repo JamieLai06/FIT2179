@@ -83,4 +83,34 @@
         },
         "color": {
           "field": "Country",
-          "type":
+          "type": "nominal",
+          "scale": {"scheme": "blues"},
+          "sort": {"field": "Cost_Index", "order": "descending"},
+          "legend": {
+            "title": "Select Country",
+            "orient": "right",
+            "offset": 200,
+            "labelFontSize": 11,
+            "symbolType": "circle"
+          }
+        },
+        "opacity": {
+          "condition": {"param": "countrySelection", "value": 1},
+          "value": 0.2
+        },
+        "tooltip": [
+          {"field": "Country", "type": "nominal"},
+          {"field": "Cost_Index", "type": "quantitative", "format": ".1f"}
+        ]
+      }
+    }
+  ],
+  "resolve": {
+    "scale": {"color": "independent"},
+    "legend": {"color": "independent"}
+  },
+  "config": {
+    "view": {"stroke": null},
+    "concat": {"spacing": 30}
+  }
+}
