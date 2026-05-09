@@ -85,7 +85,9 @@
           "scale": {"scheme": "blues"},
           "legend": {
             "title": "Select Country",
-            "orient": "right"
+            "orient": "right",
+            "offset": 40,
+            "symbolType":"circle"
           }
         },
         "opacity": {
