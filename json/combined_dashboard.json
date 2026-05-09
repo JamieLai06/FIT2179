@@ -3,9 +3,15 @@
   "title": {
     "text": "Global Cost of Living Analysis 2026",
     "fontSize": 20,
-    "anchor": "middle",
-    "font": "sans-serif"
+    "anchor": "middle"
   },
+  "params": [
+    {
+      "name": "countrySelection",
+      "select": {"type": "point", "fields": ["Country"]},
+      "bind": "legend"
+    }
+  ],
   "vconcat": [
     {
       "description": "MAP LAYER",
@@ -36,8 +42,7 @@
             "param": "countrySelection",
             "field": "Cost_Index",
             "type": "quantitative",
-            "scale": {"scheme": "blues"},
-            "title": "Living Index"
+            "scale": {"scheme": "blues"}
           },
           "value": "#e0e0e0"
         },
@@ -66,13 +71,6 @@
         },
         {"filter": "datum.rank <= 10"}
       ],
-      "params": [
-        {
-          "name": "countrySelection",
-          "select": {"type": "point", "fields": ["Country"]},
-          "bind": "legend"
-        }
-      ],
       "mark": {"type": "arc", "innerRadius": 50, "stroke": "#fff", "cursor": "pointer"},
       "encoding": {
         "theta": {"field": "Cost_Index", "type": "quantitative", "stack": true},
@@ -86,9 +84,8 @@
           "type": "nominal",
           "scale": {"scheme": "blues"},
           "legend": {
-            "title": "Select Country to Highlight",
-            "orient": "right",
-            "offset": 20
+            "title": "Select Country",
+            "orient": "right"
           }
         },
         "opacity": {
