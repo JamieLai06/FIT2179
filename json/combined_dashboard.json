@@ -89,7 +89,7 @@
           "legend": {
             "title": "Select Country",
             "orient": "right",
-            "offset": 200,
+            "offset": 100,
             "labelFontSize": 11,
             "symbolType": "circle"
           }
