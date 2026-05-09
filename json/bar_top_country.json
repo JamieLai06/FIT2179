@@ -1,0 +1,87 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "description": "Radial Bar Chart of Top Countries by Cost of Living",
+
+  "width": 600,
+  "height": 600,
+
+  "title": {
+    "text": "Top 15 Countries by Cost of Living",
+    "subtitle": "Higher values extend further outward"
+  },
+
+  "data": {
+    "url": "https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/dataset/cleaned_cpi_globaldata.csv"
+  },
+
+  "transform": [
+    {
+      "calculate": "toNumber(datum['Cost of Living Index'])",
+      "as": "cost_index"
+    },
+
+    {
+      "window": [
+        {
+          "op": "rank",
+          "as": "rank"
+        }
+      ],
+      "sort": [
+        {
+          "field": "cost_index",
+          "order": "descending"
+        }
+      ]
+    },
+
+    {
+      "filter": "datum.rank <= 15"
+    }
+  ],
+
+  "mark": {
+    "type": "arc",
+    "innerRadius": 40,
+    "stroke": "white"
+  },
+
+  "encoding": {
+    "theta": {
+      "field": "Country",
+      "type": "nominal"
+    },
+
+    "radius": {
+      "field": "cost_index",
+      "type": "quantitative",
+      "scale": {
+        "type": "sqrt",
+        "zero": true,
+        "rangeMin": 20
+      }
+    },
+
+    "color": {
+      "field": "cost_index",
+      "type": "quantitative",
+      "scale": {
+        "scheme": "blues"
+      },
+      "title": "Cost Index"
+    },
+
+    "tooltip": [
+      {
+        "field": "Country",
+        "type": "nominal"
+      },
+      {
+        "field": "cost_index",
+        "type": "quantitative",
+        "title": "Cost of Living Index"
+      }
+    ]
+  }
+}
