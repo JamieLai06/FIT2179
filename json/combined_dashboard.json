@@ -16,7 +16,7 @@
   "vconcat": [
     {
       "title": "Geographic Distribution",
-      "width": 750, 
+      "width": 750,
       "height": 350,
       "projection": {"type": "equalEarth"},
       "data": {
@@ -60,7 +60,7 @@
     },
     {
       "title": "Top 10 Most Expensive Nations",
-      "width": 400,
+      "width": 450,
       "height": 400,
       "data": {
         "url": "https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/dataset/cleaned_cpi_globaldata.csv"
@@ -78,39 +78,9 @@
         "theta": {"field": "Cost_Index", "type": "quantitative", "stack": true},
         "radius": {
           "field": "Country", 
-          "scale": {"type": "band", "rangeMin": 70, "rangeMax": 160}, 
+          "scale": {"type": "band", "rangeMin": 70, "rangeMax": 170}, 
           "sort": {"field": "Cost_Index", "order": "descending"}
         },
         "color": {
           "field": "Country",
-          "type": "nominal",
-          "scale": {"scheme": "blues"},
-          "legend": {
-            "title": "Select Country",
-            "orient": "right",
-            "offset": 80, 
-            "labelFontSize": 11,
-            "titleFontSize": 12,
-            "padding": 10
-          }
-        },
-        "opacity": {
-          "condition": {"param": "countrySelection", "value": 1},
-          "value": 0.2
-        },
-        "tooltip": [
-          {"field": "Country", "type": "nominal"},
-          {"field": "Cost_Index", "type": "quantitative", "format": ".1f"}
-        ]
-      }
-    }
-  ],
-  "resolve": {
-    "scale": {"color": "independent"},
-    "legend": {"color": "independent"}
-  },
-  "config": {
-    "view": {"stroke": null},
-    "concat": {"spacing": 20}
-  }
-}
+          "type":
