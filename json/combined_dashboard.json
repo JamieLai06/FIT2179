@@ -88,7 +88,7 @@
           "legend": {
             "title": "Select Country",
             "orient": "right",
-            "offset": -10, 
+            "offset": 20, 
             "labelFontSize": 11,
             "titleFontSize": 12,
             "padding": 0
