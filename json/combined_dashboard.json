@@ -14,8 +14,8 @@
   ],
   "vconcat": [
     {
-      "description": "MAP LAYER",
-      "width": "container",
+      "title": "Geographic Distribution",
+      "width": 800,
       "height": 400,
       "projection": {"type": "equalEarth"},
       "data": {
@@ -43,13 +43,13 @@
             "field": "Cost_Index",
             "type": "quantitative",
             "scale": {"scheme": "blues"},
-            "title": "Cost Index"
+            "title": "Living Index"
           },
-          "value": "#e0e0e0"
+          "value": "#eef2f3"
         },
         "opacity": {
           "condition": {"param": "countrySelection", "value": 1},
-          "value": 0.15
+          "value": 0.1
         },
         "tooltip": [
           {"field": "properties.NAME", "type": "nominal", "title": "Country"},
@@ -58,9 +58,9 @@
       }
     },
     {
-      "description": "RADIAL BAR CHART LAYER",
-      "width": "container",
-      "height": 350,
+      "title": "Top 10 Most Expensive Nations",
+      "width": 500,
+      "height": 400,
       "data": {
         "url": "https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/dataset/cleaned_cpi_globaldata.csv"
       },
@@ -72,12 +72,12 @@
         },
         {"filter": "datum.rank <= 10"}
       ],
-      "mark": {"type": "arc", "innerRadius": 50, "stroke": "#fff", "cursor": "pointer"},
+      "mark": {"type": "arc", "innerRadius": 60, "stroke": "#fff", "cursor": "pointer"},
       "encoding": {
         "theta": {"field": "Cost_Index", "type": "quantitative", "stack": true},
         "radius": {
           "field": "Country", 
-          "scale": {"type": "band", "rangeMin": 60, "rangeMax": 170}, 
+          "scale": {"type": "band", "rangeMin": 70, "rangeMax": 180}, 
           "sort": {"field": "Cost_Index", "order": "descending"}
         },
         "color": {
@@ -85,12 +85,9 @@
           "type": "nominal",
           "scale": {"scheme": "blues"},
           "legend": {
-            "title": "Interactive Legend",
+            "title": "Select Country",
             "orient": "right",
-            "offset": 10,
-            "symbolType": "circle",
-            "columns": 1,
-            "labelFontSize": 12
+            "offset": 50
           }
         },
         "opacity": {
