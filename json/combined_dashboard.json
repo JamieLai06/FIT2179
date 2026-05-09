@@ -42,7 +42,8 @@
             "param": "countrySelection",
             "field": "Cost_Index",
             "type": "quantitative",
-            "scale": {"scheme": "blues"}
+            "scale": {"scheme": "blues"},
+            "title": "Cost Index"
           },
           "value": "#e0e0e0"
         },
@@ -84,10 +85,12 @@
           "type": "nominal",
           "scale": {"scheme": "blues"},
           "legend": {
-            "title": "Select Country",
+            "title": "Interactive Legend",
             "orient": "right",
-            "offset": 40,
-            "symbolType":"circle"
+            "offset": 10,
+            "symbolType": "circle",
+            "columns": 1,
+            "labelFontSize": 12
           }
         },
         "opacity": {
@@ -101,6 +104,10 @@
       }
     }
   ],
+  "resolve": {
+    "scale": {"color": "independent"},
+    "legend": {"color": "independent"}
+  },
   "config": {
     "view": {"stroke": null}
   }
