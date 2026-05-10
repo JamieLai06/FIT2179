@@ -13,7 +13,7 @@
       "bind": "legend"
     }
   ],
-  "hconcat": [
+  "vconcat": [
     {
       "title": "Geographic Distribution",
       "width": 750,
@@ -61,7 +61,7 @@
     },
     {
       "title": "Top 10 Most Expensive Nations",
-      "width": 350,
+      "width": 550,
       "height": 450,
       "data": {
         "url": "https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/dataset/cleaned_cpi_globaldata.csv"
