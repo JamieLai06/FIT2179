@@ -1,0 +1,311 @@
+/* ================= GLOBAL ================= */
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #16324f;
+  --secondary: #2b6cb0;
+  --light: #f7fafc;
+  --text: #2d3748;
+  --muted: #718096;
+  --card: rgba(255,255,255,0.85);
+}
+
+body {
+  margin: 0;
+
+  font-family:
+    'Inter',
+    'Segoe UI',
+    sans-serif;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #edf2f7 0%,
+      #f7fafc 100%
+    );
+
+  color: var(--text);
+
+  overflow-x: hidden;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  padding: 90px 20px 70px;
+  text-align: center;
+}
+
+.hero-tag {
+  display: inline-block;
+
+  margin-bottom: 25px;
+
+  padding: 10px 18px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(43,108,176,0.1);
+
+  color: var(--secondary);
+
+  font-size: 0.9rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.5px;
+}
+
+.hero h1 {
+  font-size: 4rem;
+
+  margin: 0;
+
+  color: var(--primary);
+
+  font-weight: 800;
+
+  letter-spacing: -2px;
+
+  line-height: 1.05;
+}
+
+.hero p {
+  max-width: 760px;
+
+  margin: 25px auto 0;
+
+  font-size: 1.2rem;
+
+  line-height: 1.8;
+
+  color: var(--muted);
+}
+
+/* ================= CONTAINER ================= */
+
+.container {
+  width: 92%;
+
+  max-width: 1250px;
+
+  margin: auto;
+
+  padding-bottom: 80px;
+}
+
+/* ================= STORY CARDS ================= */
+
+.story-card {
+  background: var(--card);
+
+  backdrop-filter: blur(10px);
+
+  border-radius: 24px;
+
+  padding: 35px;
+
+  margin-bottom: 35px;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.05);
+
+  border:
+    1px solid rgba(255,255,255,0.4);
+}
+
+.story-card h2 {
+  margin-top: 0;
+
+  color: var(--primary);
+
+  font-size: 2rem;
+
+  margin-bottom: 15px;
+}
+
+.story-card p {
+  font-size: 1.08rem;
+
+  line-height: 1.9;
+
+  color: #4a5568;
+}
+
+/* ================= CALLOUT ================= */
+
+.callout {
+  display: inline-block;
+
+  margin-top: 20px;
+
+  padding: 18px 24px;
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2b6cb0,
+      #4299e1
+    );
+
+  color: white;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  box-shadow:
+    0 8px 20px rgba(66,153,225,0.25);
+}
+
+/* ================= DASHBOARD ================= */
+
+.dashboard-section {
+  background: white;
+
+  border-radius: 30px;
+
+  padding: 35px;
+
+  margin: 50px 0;
+
+  box-shadow:
+    0 20px 45px rgba(0,0,0,0.08);
+
+  overflow: hidden;
+}
+
+.dashboard-header {
+  margin-bottom: 30px;
+}
+
+.dashboard-header h2 {
+  margin: 0 0 12px 0;
+
+  color: var(--primary);
+
+  font-size: 2rem;
+}
+
+.dashboard-header p {
+  max-width: 800px;
+
+  color: #4a5568;
+
+  line-height: 1.8;
+}
+
+/* ================= VEGA CONTAINER ================= */
+
+#vis-dashboard {
+  width: 100%;
+
+  min-height: 850px;
+}
+
+/* ================= INSIGHTS ================= */
+
+.highlight-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(250px, 1fr));
+
+  gap: 25px;
+
+  margin-top: 40px;
+}
+
+.highlight-box {
+  background: white;
+
+  border-radius: 20px;
+
+  padding: 30px;
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.05);
+
+  transition:
+    transform 0.25s ease;
+}
+
+.highlight-box:hover {
+  transform: translateY(-5px);
+}
+
+.highlight-box h3 {
+  margin-top: 0;
+
+  color: var(--secondary);
+
+  font-size: 1.3rem;
+}
+
+.highlight-box p {
+  line-height: 1.7;
+
+  color: #4a5568;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+  text-align: center;
+
+  margin-top: 70px;
+
+  padding-top: 30px;
+
+  border-top:
+    1px solid #dfe6ee;
+
+  color: #718096;
+
+  font-size: 0.95rem;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .hero p {
+    font-size: 1.05rem;
+  }
+
+  .story-card,
+  .dashboard-section {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .hero {
+    padding: 70px 20px 50px;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .story-card h2,
+  .dashboard-header h2 {
+    font-size: 1.6rem;
+  }
+}
