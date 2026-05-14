@@ -1,0 +1,95 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 700,
+  "height": 350,
+  "title": {
+    "text": "Explore CPI Trends by Category",
+    "subtitle": "Sub-category inflation trends over time (2020-2026)",
+    "anchor": "start",
+    "color": "#1a365d"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/JamieLai06/FIT2179/main/dataset/cleaned_cpi_3d_categorized.csv",
+    "format": {"parse": {"date": "date:'%d/%m/%Y'"}}
+  },
+  "params": [
+    {
+      "name": "CategorySelect",
+      "value": "Food & Non-Alcoholic Beverages",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Food & Non-Alcoholic Beverages",
+          "Alcohol & Tobacco",
+          "Clothing & Footwear",
+          "Housing, Water, Electricity, Gas & Other Fuels",
+          "Furnishings & Household Equipment",
+          "Health",
+          "Transport",
+          "Communication",
+          "Recreation & Culture",
+          "Education",
+          "Restaurants & Accommodation",
+          "Miscellaneous Goods & Services",
+          "Other Services"
+        ],
+        "name": "Select Category: "
+      }
+    },
+    {
+      "name": "hover",
+      "select": {
+        "type": "point",
+        "fields": ["sub-category"],
+        "on": "mouseover"
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "datum.index != null"},
+    {"filter": "datum.category == CategorySelect"},
+    {"calculate": "year(datum.date)", "as": "Year"},
+    {"calculate": "toNumber(datum.index)", "as": "CPI"},
+    {
+      "aggregate": [{"op": "mean", "field": "CPI", "as": "Avg_CPI"}],
+      "groupby": ["Year", "sub-category"]
+    }
+  ],
+  "mark": {
+    "type": "line",
+    "point": true,
+    "strokeWidth": 2.5
+  },
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "ordinal",
+      "title": "Year"
+    },
+    "y": {
+      "field": "Avg_CPI",
+      "type": "quantitative",
+      "title": "Avg CPI Index",
+      "scale": {"zero": false}
+    },
+    "color": {
+      "field": "sub-category",
+      "type": "nominal",
+      "scale": {"scheme": "blues"},
+      "title": "Sub-category"
+    },
+    "opacity": {
+      "condition": {"param": "hover", "value": 1},
+      "value": 0.2
+    },
+    "tooltip": [
+      {"field": "sub-category", "title": "Sub-category"},
+      {"field": "Year", "title": "Year"},
+      {"field": "Avg_CPI", "title": "Avg CPI", "format": ".1f"}
+    ]
+  },
+  "config": {
+    "view": {"stroke": null},
+    "axis": {"labelFontSize": 12, "titleFontSize": 13}
+  }
+}

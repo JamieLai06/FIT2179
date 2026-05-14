@@ -1,0 +1,83 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Inflation Leaderboard: Rank of Yearly Price Increases",
+    "subtitle": "Click the legend to highlight a specific category",
+    "anchor": "start"
+  },
+  "width": 700,
+  "height": 450,
+  "data": {
+    "url": "https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/dataset/yearly_average_inflation_with_desc.csv"
+  },
+  "transform": [
+    {"filter": "datum.description != 'All items'"},
+    {
+      "window": [{"op": "rank", "as": "rank"}],
+      "groupby": ["year"],
+      "sort": [{"field": "inflation_yoy", "order": "descending"}]
+    }
+  ],
+  "layer": [
+    {
+      "params": [
+        {
+          "name": "highlight",
+          "select": {"type": "point", "fields": ["description"]},
+          "bind": "legend"
+        }
+      ],
+      "mark": {"type": "line", "interpolate": "monotone", "strokeWidth": 4, "cursor": "pointer"},
+      "encoding": {
+        "x": {"field": "year", "type": "ordinal", "title": "Year"},
+        "y": {
+          "field": "rank",
+          "type": "quantitative",
+          "sort": "descending",
+          "axis": {"tickMinStep": 1, "title": "Rank (1 = Highest Inflation)"}
+        },
+        "color": {
+          "condition": {
+            "param": "highlight",
+            "field": "description",
+            "type": "nominal",
+            "scale": {"scheme": "category20b"}
+          },
+          "value": "lightgrey"
+        },
+        "opacity": {
+          "condition": {"param": "highlight", "value": 1},
+          "value": 0.1
+        }
+      }
+    },
+    {
+      "mark": {"type": "point", "size": 100, "filled": true, "cursor": "pointer"},
+      "encoding": {
+        "x": {"field": "year", "type": "ordinal"},
+        "y": {"field": "rank", "type": "quantitative", "sort": "descending"},
+        "color": {
+          "condition": {
+            "param": "highlight",
+            "field": "description",
+            "type": "nominal"
+          },
+          "value": "lightgrey"
+        },
+        "opacity": {
+          "condition": {"param": "highlight", "value": 1},
+          "value": 0.1
+        },
+        "tooltip": [
+          {"field": "year", "title": "Year"},
+          {"field": "description", "title": "Category"},
+          {"field": "rank", "title": "Rank"},
+          {"field": "inflation_yoy", "title": "Inflation Rate (%)", "format": ".2f"}
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": {"stroke": "transparent"}
+  }
+}
