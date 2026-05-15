@@ -1,0 +1,169 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+
+  "title": {
+    "text": "Cost of Living Pressure on Low-Income Households",
+    "subtitle": "Deviation of CPI categories from baseline index",
+    "anchor": "start",
+    "fontSize": 18,
+    "color": "#1a365d"
+  },
+
+  "width": "container",
+  "height": 500,
+
+  "data": {
+    "url": "https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/dataset/cleaned_cpi_2d_lowincome_with_desc.csv"
+  },
+
+  "transform": [
+
+    {
+      "filter": "isValid(datum.index)"
+    },
+
+    {
+      "calculate": "datum.index - 100",
+      "as": "deviation"
+    },
+
+    {
+      "calculate":
+      "datum.deviation >= 0 ? 'Above Base CPI' : 'Below Base CPI'",
+      "as": "direction"
+    }
+  ],
+
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "cornerRadius": 3
+      },
+
+      "encoding": {
+
+        "y": {
+          "field": "description",
+          "type": "nominal",
+          "sort": "-x",
+          "title": "Category"
+        },
+
+        "x": {
+          "field": "deviation",
+          "type": "quantitative",
+          "title": "Deviation from Base CPI (100)"
+        },
+
+        "color": {
+          "field": "direction",
+          "type": "nominal",
+
+          "scale": {
+            "domain": [
+              "Above Base CPI",
+              "Below Base CPI"
+            ],
+
+            "range": [
+              "#d94841",
+              "#3b82f6"
+            ]
+          },
+
+          "legend": {
+            "title": null,
+            "orient": "top"
+          }
+        },
+
+        "tooltip": [
+
+          {
+            "field": "description",
+            "type": "nominal",
+            "title": "Category"
+          },
+
+          {
+            "field": "index",
+            "type": "quantitative",
+            "title": "CPI Index",
+            "format": ".1f"
+          },
+
+          {
+            "field": "deviation",
+            "type": "quantitative",
+            "title": "Deviation",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+
+    {
+      "mark": {
+        "type": "rule",
+        "color": "#444",
+        "strokeWidth": 2
+      },
+
+      "encoding": {
+        "x": {
+          "datum": 0
+        }
+      }
+    },
+
+    {
+      "mark": {
+        "type": "text",
+        "dx": 5,
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": 11
+      },
+
+      "encoding": {
+
+        "y": {
+          "field": "description",
+          "type": "nominal",
+          "sort": "-x"
+        },
+
+        "x": {
+          "field": "deviation",
+          "type": "quantitative"
+        },
+
+        "text": {
+          "field": "index",
+          "type": "quantitative",
+          "format": ".1f"
+        },
+
+        "color": {
+          "value": "#333"
+        }
+      }
+    }
+  ],
+
+  "config": {
+
+    "view": {
+      "stroke": null
+    },
+
+    "axis": {
+      "grid": true
+    }
+  }
+}

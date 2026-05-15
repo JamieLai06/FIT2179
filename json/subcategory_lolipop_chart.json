@@ -1,0 +1,94 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "width": "container",
+  "height": 350,
+  "title": {
+    "text": "Explore Inflation by Sub-category",
+    "subtitle": "Average CPI across detailed spending categories (2020-2026)",
+    "anchor": "start",
+    "color": "#1a365d"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/JamieLai06/FIT2179/main/dataset/cleaned_cpi_3d_categorized.csv"
+  },
+  "params": [
+    {
+      "name": "CategorySelect",
+      "value": "Food & Non-Alcoholic Beverages",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Food & Non-Alcoholic Beverages",
+          "Alcohol & Tobacco",
+          "Clothing & Footwear",
+          "Housing, Water, Electricity, Gas & Other Fuels",
+          "Furnishings & Household Equipment",
+          "Health",
+          "Transport",
+          "Communication",
+          "Recreation & Culture",
+          "Education",
+          "Restaurants & Accommodation",
+          "Miscellaneous Goods & Services",
+          "Other Services"
+        ],
+        "name": "Select Category: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "datum.index != null"},
+    {"filter": "datum.category == CategorySelect"},
+    {"calculate": "toNumber(datum.index)", "as": "CPI"},
+    {
+      "aggregate": [{"op": "mean", "field": "CPI", "as": "Avg_CPI"}],
+      "groupby": ["sub-category"]
+    }
+  ],
+  "encoding": {
+    "y": {
+      "field": "sub-category",
+      "type": "nominal",
+      "title": null,
+      "sort": {"field": "Avg_CPI", "order": "descending"},
+      "axis": {"labelLimit": 200, 
+      "labelPadding": 10}
+    },
+    "x": {
+      "field": "Avg_CPI",
+      "type": "quantitative",
+      "title": "Average CPI Index",
+      "scale": {"zero": false}
+    }
+  },
+  "layer": [
+    {
+      "mark": {"type": "rule", "color": "#d0d0d0", "strokeWidth": 2},
+      "encoding": {"x2": {"value": 0}}
+    },
+    {
+      "mark": {"type": "circle", "size": 260, "color": "#0056b3"},
+      "encoding": {
+        "tooltip": [
+          {"field": "sub-category", "type": "nominal", "title": "Sub-category"},
+          {"field": "Avg_CPI", "type": "quantitative", "title": "Avg CPI", "format": ".1f"}
+        ]
+      }
+    }
+  ],
+  "config": {
+  "autosize": {"type": "pad", "resize": true},
+  "view": {"stroke": null},
+  "axis": {
+    "labelFontSize": 12,
+    "titleFontSize": 13
+  },
+  "style": {
+    "cell": {"stroke": "transparent"}
+  }
+}
+  }
