@@ -15,7 +15,8 @@
       "width": 800,
       "height": 450,
       "projection": {
-        "type": "equirectangular"
+        "type": "equirectangular",
+        "center": [15, 0]
       },
       "layer": [
         {
