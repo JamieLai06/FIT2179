@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "spacing": 30,
+  "spacing": 10,
   "bounds": "flush",
   "title": {
     "text": "Global Cost of Living Analysis 2026",
