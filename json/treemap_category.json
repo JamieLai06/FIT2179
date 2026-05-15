@@ -82,8 +82,8 @@
       "orient": "right",
       "columns": 1,
       "symbolType": "square",
-      "labelFontSize": 11,
-      "titleFontSize": 13,
+      "labelFontSize": 12,
+      "titleFontSize": 14,
       "offset": 40
     }
   ],
