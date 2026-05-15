@@ -12,7 +12,7 @@
   "hconcat": [
     {
       "title": "Geographic Distribution",
-      "width": 1050,
+      "width": 1000,
       "height": 450,
       "projection": {
         "type": "equirectangular"
