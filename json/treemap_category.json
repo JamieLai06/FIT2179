@@ -4,8 +4,8 @@
     "type": "fit",
     "contains": "padding"
   },
-  "width": 1300,
-  "height": 750,
+  "width": 1350,
+  "height": 800,
   "padding": {"top": 80, "left": 10, "right": 10, "bottom": 120},
 
   "title": {
