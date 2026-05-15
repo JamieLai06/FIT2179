@@ -101,7 +101,7 @@
           "type": "nominal",
           "scale": {"scheme": "blues"},
           "sort": {"field": "Cost_Index", "order": "descending"},
-          "legend": {"title": "Country", "orient": "right"}
+          "legend": {"title": "Country", "orient": "below"}
         },
         "opacity": {
           "condition": {"param": "countrySelection", "value": 1},
