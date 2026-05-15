@@ -4,9 +4,9 @@
     "type": "fit",
     "contains": "padding"
   },
-  "width": 1450,
+  "width": 1400,
   "height": 600,
-  "padding": {"top": 80, "left": 10, "right": 10, "bottom": 120},
+  "padding": {"top": 80, "left": 10, "right": 10, "bottom": 20},
 
   "title": {
     "text": "2026 Budget Hierarchy: Sub-category CPI Breakdown",
