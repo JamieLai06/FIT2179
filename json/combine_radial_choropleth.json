@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "spacing": 10,
+  "spacing": 30,
   "bounds": "flush",
   "title": {
     "text": "Global Cost of Living Analysis 2026",
@@ -12,7 +12,7 @@
   "hconcat": [
     {
       "title": "Geographic Distribution",
-      "width": 700,
+      "width": 800,
       "height": 450,
       "projection": {
         "type": "equirectangular"
