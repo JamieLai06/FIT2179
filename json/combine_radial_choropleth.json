@@ -16,7 +16,7 @@
   "concat": [
     {
       "title": "Geographic Distribution",
-      "width": 650,
+      "width": 700,
       "height": 450,
       "projection": {"type": "equirectangular"},
       "layer": [
