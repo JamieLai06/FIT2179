@@ -1,9 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
-  "autosize": {
-    "type": "fit",
-    "contains": "padding"
-  },
+  
   "width": 1400,
   "height": 600,
   "padding": {"top": 20, "left": 10, "right": 10, "bottom": 20},
@@ -50,6 +47,9 @@
           "sort": {"field": "value", "order": "descending"},
           "round": true,
           "method": "squarify",
+          "paddingInner": 2,
+          "paddingOuter": 2,
+          "paddingTop": 25,
           "size": [{"signal": "width"}, {"signal": "height"}]
         }
       ]
