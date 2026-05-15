@@ -6,58 +6,58 @@
     "anchor": "middle",
     "dy": -10
   },
-  "params": [
-    {
-      "name": "countrySelection",
-      "select": {"type": "point", "fields": ["Country"]},
-      "bind": "legend"
-    }
-  ],
-  "hconcat": [
+  "concat": [
     {
       "title": "Geographic Distribution",
       "width": 750,
       "height": 450,
-      "projection": {"type": "equalEarth"},
-      "data": {
-        "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
-        "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
-      },
-      "transform": [
+      "projection": {"type": "equirectangular"},
+      "layer": [
         {
-          "lookup": "properties.NAME",
-          "from": {
-            "data": {
-              "url": "https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/dataset/cleaned_cpi_globaldata.csv"
-            },
-            "key": "Country",
-            "fields": ["Cost of Living Index", "Country"]
-          }
+          "data": {"sphere": true},
+          "mark": {"type": "geoshape", "fill": "#f0f8ff"}
         },
-        {"calculate": "toNumber(datum['Cost of Living Index'])", "as": "Cost_Index"}
-      ],
-      "spacing": 20,
-      "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.5},
-      "encoding": {
-        "color": {
-          "condition": {
-            "param": "countrySelection",
-            "field": "Cost_Index",
-            "type": "quantitative",
-            "scale": {"scheme": "blues"},
-            "title": "Living Index"
+        {
+          "data": {"graticule": {"step": [40, 40]}},
+          "mark": {"type": "geoshape", "stroke": "#b8c6d1", "strokeWidth": 0.6}
+        },
+        {
+          "data": {
+            "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
+            "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
           },
-          "value": "#eef2f3"
-        },
-        "opacity": {
-          "condition": {"param": "countrySelection", "value": 1},
-          "value": 0.1
-        },
-        "tooltip": [
-          {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-          {"field": "Cost_Index", "type": "quantitative", "title": "Index", "format": ".1f"}
-        ]
-      }
+          "transform": [
+            {
+              "lookup": "properties.NAME",
+              "from": {
+                "data": {
+                  "url": "https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/dataset/cleaned_cpi_globaldata.csv"
+                },
+                "key": "Country",
+                "fields": ["Cost of Living Index", "Country"]
+              }
+            },
+            {"calculate": "toNumber(datum['Cost of Living Index'])", "as": "Cost_Index"}
+          ],
+          "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.5},
+          "encoding": {
+            "color": {
+              "field": "Cost_Index",
+              "type": "quantitative",
+              "scale": {"scheme": "blues"},
+              "title": "Living Index"
+            },
+            "opacity": {
+              "condition": {"param": "countrySelection", "value": 1},
+              "value": 0.1
+            },
+            "tooltip": [
+              {"field": "Country", "type": "nominal"},
+              {"field": "Cost_Index", "type": "quantitative", "format": ".1f"}
+            ]
+          }
+        }
+      ]
     },
     {
       "title": "Top 10 Most Expensive Nations",
@@ -66,20 +66,24 @@
       "data": {
         "url": "https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/dataset/cleaned_cpi_globaldata.csv"
       },
+      "params": [
+        {
+          "name": "countrySelection",
+          "select": {"type": "point", "fields": ["Country"]},
+          "bind": "legend"
+        }
+      ],
       "transform": [
         {"calculate": "toNumber(datum['Cost of Living Index'])", "as": "Cost_Index"},
-        {
-          "window": [{"op": "rank", "as": "rank"}],
-          "sort": [{"field": "Cost_Index", "order": "descending"}]
-        },
+        {"window": [{"op": "rank", "as": "rank"}], "sort": [{"field": "Cost_Index", "order": "descending"}]},
         {"filter": "datum.rank <= 10"}
       ],
       "mark": {"type": "arc", "innerRadius": 60, "stroke": "#fff", "cursor": "pointer"},
       "encoding": {
         "theta": {"field": "Cost_Index", "type": "quantitative", "stack": true},
         "radius": {
-          "field": "Country", 
-          "scale": {"type": "band", "rangeMin": 70, "rangeMax": 170}, 
+          "field": "Country",
+          "scale": {"type": "band", "rangeMin": 70, "rangeMax": 170},
           "sort": {"field": "Cost_Index", "order": "descending"}
         },
         "color": {
@@ -87,13 +91,7 @@
           "type": "nominal",
           "scale": {"scheme": "blues"},
           "sort": {"field": "Cost_Index", "order": "descending"},
-          "legend": {
-            "title": "Select Country",
-            "orient": "right",
-            "offset": 100,
-            "labelFontSize": 11,
-            "symbolType": "circle"
-          }
+          "legend": {"title": "Country", "orient": "right"}
         },
         "opacity": {
           "condition": {"param": "countrySelection", "value": 1},
@@ -106,12 +104,5 @@
       }
     }
   ],
-  "resolve": {
-    "scale": {"color": "independent"},
-    "legend": {"color": "independent"}
-  },
-  "config": {
-    "view": {"stroke": null},
-    "concat": {"spacing": 30}
-  }
+  "config": {"view": {"stroke": null}}
 }
