@@ -5,7 +5,7 @@
     "contains": "padding"
   },
   "width": 900,
-  "height": 500,
+  "height": 600,
   "padding": {"top": 80, "left": 10, "right": 10, "bottom": 120},
 
   "title": {
