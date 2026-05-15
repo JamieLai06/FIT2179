@@ -6,7 +6,7 @@
     "anchor": "middle",
     "dy": -10
   },
-  "vconcat": [
+  "concat": [
     {
       "title": "Geographic Distribution",
       "width": 750,
