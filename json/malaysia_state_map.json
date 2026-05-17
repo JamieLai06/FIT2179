@@ -17,7 +17,7 @@
   "params": [
     {
       "name": "zoom",
-      "value": 1800,
+      "value": 1600,
       "bind": {
         "input": "range",
         "min": 1200,
