@@ -65,7 +65,7 @@
 
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/JamieLai06/FIT2179/main/json/ne_10m_admin_1_states_provinces.json",
+        "url": "https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/ne_10m.json",
 
         "format": {
           "type": "topojson",
