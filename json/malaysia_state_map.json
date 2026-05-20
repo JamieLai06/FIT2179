@@ -14,20 +14,21 @@
   },
   "width": "container",
   "height": 450,
+  "data": {
+    "url": "https://cdn.jsdelivr.net/gh/JamieLai06/FIT2179@main/json/ne_10m%20(1).json",
+    "format": {
+      "type": "topojson",
+      "feature": "ne_10m_admin_1_states_provinces"
+    }
+  },
   "projection": {
     "type": "equirectangular",
     "center": [109.5, 4.2],
-    "scale": 3000
+    "scale": 2000
   },
   "layer": [
     {
-      "data": {
-        "url": "https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/ne_10m%20(1).json",
-        "format": {
-          "type": "topojson",
-          "feature": "ne_10m_admin_1_states_provinces"
-        }
-      },
+      "comment": "LAYER 1: Draws all background countries/states in neutral white",
       "mark": {
         "type": "geoshape",
         "fill": "#ffffff",
@@ -36,13 +37,7 @@
       }
     },
     {
-      "data": {
-        "url": "https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/ne_10m%20(1).json",
-        "format": {
-          "type": "topojson",
-          "feature": "ne_10m_admin_1_states_provinces"
-        }
-      },
+      "comment": "LAYER 2: CPI data overlay with custom tooltips",
       "transform": [
         {
           "lookup": "properties.name",
