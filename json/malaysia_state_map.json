@@ -15,7 +15,7 @@
   "width": "container",
   "height": 450,
   "data": {
-    "url": "https://cdn.jsdelivr.net/gh/JamieLai06/FIT2179@main/json/ne_10m%20(1).json",
+    "url": "https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/ne_10m%20(4).json",
     "format": {
       "type": "topojson",
       "feature": "ne_10m_admin_1_states_provinces"
@@ -24,11 +24,11 @@
   "projection": {
     "type": "equirectangular",
     "center": [109.5, 4.2],
-    "scale": 1900
+    "scale": 2000
   },
   "layer": [
     {
-      "comment": "LAYER 1: Draws all background countries/states in neutral white",
+      "comment": "LAYER 1: Base map of all countries in neutral white",
       "mark": {
         "type": "geoshape",
         "fill": "#ffffff",
@@ -37,7 +37,7 @@
       }
     },
     {
-      "comment": "LAYER 2: CPI data overlay with custom tooltips",
+      "comment": "LAYER 2: CPI Color gradients mapped to Malaysian States",
       "transform": [
         {
           "lookup": "properties.name",
@@ -90,6 +90,9 @@
   ],
   "config": {
     "view": {
+      "stroke": null
+    },
+    "cell": {
       "stroke": null
     },
     "background": "#d9eaf7"
