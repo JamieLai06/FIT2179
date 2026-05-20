@@ -1,0 +1,1 @@
+{"type":"Topology","arcs":[[[0,0],[0,100],[100,0],[0,-100],[-100,0]]],"transform":{"scale":[0.21522051965712677,0.09494618035821949],"translate":[98.52813062639802,-1.4708462659899628]},"objects":{"rectangle":{"type":"GeometryCollection","geometries":[{"arcs":[[0]],"type":"Polygon"}]}}}
