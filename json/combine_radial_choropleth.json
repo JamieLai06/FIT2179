@@ -51,7 +51,7 @@
             "color": {
               "field": "Cost_Index",
               "type": "quantitative",
-              "scale": {"scheme": "blues"},
+              "scale": {"scheme": "reds"},
               "legend": null 
             },
             "opacity": {
@@ -104,7 +104,12 @@
         "color": {
           "field": "Country",
           "type": "nominal",
-          "scale": {"scheme": "blues"},
+          "scale": {
+  "range": [
+    "#F8AB63", "#F8D763", "#8BD15C", "#38C7C2", "#5CAAD1", 
+    "#5C7FD1", "#9880DB", "#C680DB", "#D15CBA", "#857C26"
+  ]
+},
           "sort": {"field": "Cost_Index", "order": "descending"},
           "legend": {
             "title": "Country",
