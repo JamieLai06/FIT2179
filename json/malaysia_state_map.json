@@ -4,6 +4,7 @@
     "type": "fit",
     "contains": "padding"
   },
+  "padding": {"top": 10, "bottom": 0, "left": 0, "right": 20}, 
   "title": {
     "text": "Cost of Living Across Malaysian States",
     "subtitle": "Consumer Price Index (CPI) by state",
@@ -24,11 +25,10 @@
   "projection": {
     "type": "equirectangular",
     "center": [109.5, 4.2],
-    "scale": 1850
+    "scale": 2000
   },
   "layer": [
     {
-      "comment": "LAYER 1: Base map of all countries in neutral white",
       "mark": {
         "type": "geoshape",
         "fill": "#ffffff",
@@ -37,7 +37,6 @@
       }
     },
     {
-      "comment": "LAYER 2: CPI Color gradients mapped to Malaysian States",
       "transform": [
         {
           "lookup": "properties.name",
