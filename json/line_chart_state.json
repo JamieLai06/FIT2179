@@ -4,13 +4,6 @@
     "type": "fit",
     "contains": "padding"
   },
-  "title": {
-    "text": "CPI Growth Journey (2020-2026)",
-    "subtitle": "Use the dropdown to highlight a specific region's trend",
-    "anchor": "start",
-    "fontSize": 18,
-    "color": "#1a365d"
-  },
   "width": "container",
   "height": 400,
   "data": {
