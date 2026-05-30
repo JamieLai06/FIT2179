@@ -4,7 +4,7 @@
     "type": "fit",
     "contains": "padding"
   },
-  "padding": {"top": 0, "bottom": 0, "left": 0, "right": 15}, 
+  "padding": {"top": 10, "bottom": 10, "left": 0, "right": 20}, 
   "width": "container",
   "height": 420,
   "data": {
@@ -16,7 +16,7 @@
   },
   "projection": {
     "type": "equirectangular",
-    "center": [109.5, 4.25],
+    "center": [109.5, 3.85],
     "scale": 3490
   },
   "layer": [
@@ -86,6 +86,6 @@
     "cell": {
       "stroke": null
     },
-    "background": "#d9eaf7"
+    "background": "transparent"
   }
 }
