@@ -1,503 +1,205 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8" />
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Malaysia Cost of Living Dashboard</title>
 
-
-
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
-
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-
-
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-
-
   <link rel="stylesheet" href="css/style.css" />
-
 </head>
-
-
-
 <body>
 
-
-
-  <div class="container" style="height: 3034px">
-
-
-
-    <!-- ================= HERO ================= -->
-
-
+  <div class="container">
 
     <section class="hero">
-
-
-
       <h1>
-
         The Rising Cost of Living
-
         <br>
-
         in Malaysia
-
       </h1>
-
-
-
       <p>
-
         This visual analytics dashboard explores the evolving
-
         <span class="highlight">Consumer Price Index (CPI)</span>
-
         across Malaysia and the world.
-
         Through interactive maps, trends, category analysis,
-
         and inflation breakdowns, the dashboard reveals how
-
         rising living costs reshape spending patterns,
-
         household pressure, and economic reality.
-
       </p>
-
-
-
     </section>
-
-
-
-
-
-    <!-- ================= INTRO STORY ================= -->
-
-
 
     <div class="story-box">
-
-
-
-      <h2>
-
-        Why Cost of Living Matters
-
-      </h2>
-
-
-
+      <h2>Why Cost of Living Matters</h2>
       <p>
-
         Inflation affects more than prices.
-
         It changes household behaviour,
-
         purchasing power, and financial wellbeing.
-
         By examining CPI trends across categories,
-
         regions, and income groups,
-
         this dashboard highlights where inflation pressure
-
         is strongest and how living costs have evolved
-
         between 2020 and 2026.
-
       </p>
-
-
-
     </div>
 
-
-
-
-
-    <!-- ================= GLOBAL SECTION ================= -->
-
-
+    <section class="section">
+      <h2 class="section-title">Global Cost of Living Landscape</h2>
+      <p class="section-description">
+        The global overview compares living costs across countries.
+        High-income economies dominate the upper range,
+        while developing economies generally experience lower
+        living index values.
+      </p>
+      <div class="grid-1">
+        <div class="chart-card">
+          <div id="vis1" class="vis"></div>
+        </div>
+      </div>
+    </section>
 
     <section class="section">
-
-
-
-      <h2 class="section-title">
-
-        Global Cost of Living Landscape
-
-      </h2>
-
-
-
+      <h2 class="section-title">Malaysia CPI Overview</h2>
       <p class="section-description">
-
-        The global overview compares living costs across countries.
-
-        High-income economies dominate the upper range,
-
-        while developing economies generally experience lower
-
-        living index values.
-
+        National CPI trends reveal how inflation accelerated after the pandemic period.
+        Regional differences across Malaysian states also highlight uneven living costs nationwide.
       </p>
-
-
 
       <div class="grid-1">
-
-
-
         <div class="chart-card">
-
-          <div id="vis1" class="vis"></div>
-
+          <h3 class="chart-heading">Annual CPI Growth</h3>
+          <p class="chart-caption">
+            Malaysia's overall CPI increased steadily from 2016 onward, with stronger inflationary pressure after 2021.
+          </p>
+          <div id="vis2" class="vis"></div>
         </div>
 
-
-
+        <div class="chart-card">
+          <h3 class="chart-heading">State CPI Distribution</h3>
+          <p class="chart-caption">
+            States show varying CPI levels, reflecting different urbanisation patterns, housing costs, and regional demand.
+          </p>
+          <div id="vis3" class="vis"></div>
+        </div>
       </div>
-
-
-
-    </section>
-
-
-
-
-
-    <!-- ================= MALAYSIA SECTION ================= -->
-<section class="section">
-
-  <h2 class="section-title">
-    Malaysia CPI Overview
-  </h2>
-
-  <p class="section-description">
-    National CPI trends reveal how inflation accelerated after the pandemic period.
-    Regional differences across Malaysian states also highlight uneven living costs nationwide.
-  </p>
-
-  <div class="grid-1">
-
-    <div class="chart-card">
-      <h3 class="chart-heading">
-        Annual CPI Growth
-      </h3>
-      <p class="chart-caption">
-        Malaysia's overall CPI increased steadily from 2016 onward, with stronger inflationary pressure after 2021.
-      </p>
-      <div id="vis2" class="vis"></div>
-    </div>
-
-    <div class="chart-card">
-      <h3 class="chart-heading">
-        State CPI Distribution
-      </h3>
-      <p class="chart-caption">
-        States show varying CPI levels, reflecting different urbanisation patterns, housing costs, and regional demand.
-      </p>
-      <div id="vis3" class="vis"></div>
-    </div>
-
-  </div>
-
-  <div class="grid-1" style="margin-top: 28px;">
-    <div class="chart-card">
-      <h3 class="chart-heading">
-        Regional CPI Journey
-      </h3>
-      <p class="chart-caption">
-        Explore how CPI changed across Malaysian states. Use interaction features to compare growth trajectories.
-      </p>
-      <div id="vis4" class="vis"></div>
-    </div>
-  </div>
-
-</section>
-
-
-    <!-- ================= CATEGORY ANALYSIS ================= -->
-
-
-
-    <section class="section">
-
-
-
-      <h2 class="section-title">
-
-        Spending Category Analysis
-
-      </h2>
-
-
-
-      <p class="section-description">
-
-        Inflation does not affect every spending category equally.
-
-        Essential goods and services experienced stronger CPI growth,
-
-        while other categories remained relatively stable.
-
-      </p>
-
-
-
-      <div class="grid-2">
-
-
-
-        <div class="chart-card">
-
-          <div id="vis5" class="vis"></div>
-
-        </div>
-
-
-
-        <div class="chart-card">
-
-          <div id="vis6" class="vis"></div>
-
-        </div>
-
-
-
-      </div>
-
-
-
-
-
-      <div class="grid-2" style="margin-top: 28px;">
-
-
-
-        <div class="chart-card">
-
-          <div id="vis7" class="vis"></div>
-
-        </div>
-
-
-
-        <div class="chart-card">
-
-          <div id="vis8" class="vis"></div>
-
-        </div>
-
-
-
-      </div>
-
-
-
-
 
       <div class="grid-1" style="margin-top: 28px;">
-
-
-
         <div class="chart-card">
-
-          <div id="vis9" class="vis"></div>
-
+          <h3 class="chart-heading">Regional CPI Journey</h3>
+          <p class="chart-caption">
+            Explore how CPI changed across Malaysian states. Use interaction features to compare growth trajectories.
+          </p>
+          <div id="vis4" class="vis"></div>
         </div>
-
-
       </div>
-
-
     </section>
 
-
-
-
-
-    <!-- ================= LOW INCOME SECTION ================= -->
     <section class="section">
-
-
-
-      <h2 class="section-title">
-
-        Low-Income Household Pressure
-
-      </h2>
-
-
-
+      <h2 class="section-title">Spending Category Analysis</h2>
       <p class="section-description">
-
-        Low-income households are more vulnerable to inflation,
-
-        especially when essential categories rise sharply.
-
-        The following charts reveal how inflation impacts
-
-        financially constrained households.
-
+        Inflation does not affect every spending category equally.
+        Essential goods and services experienced stronger CPI growth,
+        while other categories remained relatively stable.
       </p>
 
+      <div class="grid-2">
+        <div class="chart-card">
+          <div id="vis5" class="vis"></div>
+        </div>
+        <div class="chart-card">
+          <div id="vis6" class="vis"></div>
+        </div>
+      </div>
 
+      <div class="grid-2" style="margin-top: 28px;">
+        <div class="chart-card">
+          <div id="vis7" class="vis"></div>
+        </div>
+        <div class="chart-card">
+          <div id="vis8" class="vis"></div>
+        </div>
+      </div>
+
+      <div class="grid-1" style="margin-top: 28px;">
+        <div class="chart-card">
+          <div id="vis9" class="vis"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="margin-bottom: 40px;">
+      <h2 class="section-title">Low-Income Household Pressure</h2>
+      <p class="section-description">
+        Low-income households are more vulnerable to inflation,
+        especially when essential categories rise sharply.
+        The following charts reveal how inflation impacts
+        financially constrained households.
+      </p>
 
       <div class="grid-2">
-
-
-
         <div class="chart-card">
           <div id="vis10" class="vis"></div>
         </div>
-
-
-
         <div class="chart-card">
           <div id="vis11" class="vis"></div>
-
         </div>
       </div>
-
     </section>
 
-
-      <footer>
-      <p>
-        FIT2179 Data Visualisation &bull; Malaysia Cost of Living Dashboard
-      </p>
+<footer style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; text-align: left; margin-top: 10px; padding-top: 20px; padding-bottom: 40px; border-top: 1px solid #cbd5e1; color: #1f2937; clear: both;">
       
-      <p style="margin-top: 8px; font-size: 0.85rem;">
-        Data Sources: 
-        <a href="https://data.gov.my/data-catalogue/cpi_annual" target="_blank" style="color: #2563eb; text-decoration: none;">Malaysia Open Data (CPI Annual)</a> 
-        &bull; 
-        <a href="https://www.kaggle.com/datasets/marianadeem755/global-cost-of-living-rankingsaffordability-index" target="_blank" style="color: #2563eb; text-decoration: none;">Kaggle (Global Cost of Living Rankings)</a>
-      </p>
+      <div>        
+        <p style="margin-top: 0; margin-bottom: 16px; font-size: 0.9rem; line-height: 1.6;">
+          <strong>Dataset (Compile into one excel sheet):</strong><br>
+          <a href="https://monashuni-my.sharepoint.com/:x:/r/personal/jlai0074_student_monash_edu/_layouts/15/Doc.aspx?sourcedoc=%7BF50418D6-AD7B-4557-AA05-AE0EBC9E1E40%7D&file=cleaned%20dataset.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1&wdOrigin=SEARCHENGINE.GOOGLE%2CAPPHOME-WEB.JUMPBACKIN&wdPreviousSession=8a9e8f1f-f4d8-44e0-95e8-a60f1019518a&wdPreviousSessionSrc=AppHomeWeb&ct=1780126475230" target="_blank" style="color: #2563eb; text-decoration: none; word-break: break-all;">https://monashuni-my.sharepoint.com/:x:/r/personal/jlai0074_student_monash_edu/...</a>
+        </p>
 
-      <p style="margin-top: 8px; font-size: 0.85rem; color: #64748b;">
-        Created by: Jamie Lai on 30th May 2026
-      </p>
-    </footer>  </div>
+        <h3 style="font-size: 1.1rem; font-weight: 700; color: #0f172a; margin-top: 0; margin-bottom: 12px;">Data sources</h3>
+        <p style="margin-top: 0; margin-bottom: 0; font-size: 0.9rem; line-height: 1.6;">
+          <strong>Kaggle:</strong><br>
+          <a href="https://www.kaggle.com/datasets/marianadeem755/global-cost-of-living-rankingsaffordability-index" target="_blank" style="color: #2563eb; text-decoration: none; word-break: break-all; display: block; margin-bottom: 12px;">https://www.kaggle.com/datasets/marianadeem755/global-cost-of-living-rankingsaffordability-index</a>
+          
+          <strong>OpenDOSM:</strong><br>
+          <a href="https://data.gov.my/data-catalogue/cpi_annual" target="_blank" style="color: #2563eb; text-decoration: none; word-break: break-all;">https://data.gov.my/data-catalogue/cpi_annual</a>
+        </p>
+      </div>
 
+      <div>
+        <p style="font-size: 0.9rem; margin-top: 0; margin-bottom: 12px; color: #475569;">
+          <strong>Designed By:</strong> Jamie Lai
+        </p>
+        <p style="font-size: 0.9rem; margin-top: 0; margin-bottom: 0; color: #475569;">
+          <strong>Data Modified By:</strong> 30th May 2026
+        </p>
+      </div>
+
+    </footer>
+    
   </div>
 
-  <!-- ================= VEGA EMBED ================= -->
   <script>
-
     const embedOptions = {
       actions: false,
       renderer: "svg"
     };
 
-
-
-    vegaEmbed(
-      '#vis1',
-      'https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/combine_radial_choropleth.json',
-      embedOptions
-    );
-
-
-
-    vegaEmbed(
-      '#vis2',
-      'https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/area_chart_annual_CPI.json',
-      embedOptions
-    );
-
-
-
-    vegaEmbed(
-      '#vis3',
-      'https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/malaysia_state_map.json',
-      embedOptions
-    );
-
-
-
-    vegaEmbed(
-      '#vis4',
-      'https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/line_chart_state.json',
-      embedOptions
-    );
-
-
-
-    vegaEmbed(
-      '#vis5',
-      'https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/category_heatmao.json',
-      embedOptions
-    );
-
-
-
-    vegaEmbed(
-      '#vis6',
-      'https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/slope_chart_category_compare.json',
-      embedOptions
-    );
-
-
-
-    vegaEmbed(
-      '#vis7',
-      'https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/subcategory_lolipop_chart.json',
-      embedOptions
-    );
-
-
-
-    vegaEmbed(
-      '#vis8',
-      'https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/interactive_cateogory_line_chart.json',
-      embedOptions
-    );
-
-
-
-    vegaEmbed(
-      '#vis9',
-      'https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/treemap_category.json',
-      embedOptions
-    );
-
-
-
-    vegaEmbed(
-      '#vis10',
-      'https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/CPI_trend_low_inc.json',
-      embedOptions
-    );
-
-
-
-    vegaEmbed(
-      '#vis11',
-      'https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/dumbell_ranking_chart.json',
-      embedOptions
-    );
-
+    vegaEmbed('#vis1', 'https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/combine_radial_choropleth.json', embedOptions);
+    vegaEmbed('#vis2', 'https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/area_chart_annual_CPI.json', embedOptions);
+    vegaEmbed('#vis3', 'https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/malaysia_state_map.json', embedOptions);
+    vegaEmbed('#vis4', 'https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/line_chart_state.json', embedOptions);
+    vegaEmbed('#vis5', 'https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/category_heatmao.json', embedOptions);
+    vegaEmbed('#vis6', 'https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/slope_chart_category_compare.json', embedOptions);
+    vegaEmbed('#vis7', 'https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/subcategory_lolipop_chart.json', embedOptions);
+    vegaEmbed('#vis8', 'https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/interactive_cateogory_line_chart.json', embedOptions);
+    vegaEmbed('#vis9', 'https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/treemap_category.json', embedOptions);
+    vegaEmbed('#vis10', 'https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/CPI_trend_low_inc.json', embedOptions);
+    vegaEmbed('#vis11', 'https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/dumbell_ranking_chart.json', embedOptions);
   </script>
 </body>
 </html>
