@@ -48,7 +48,7 @@
       }
     },
     {
-      "mark": {"type": "text", "dy": 6.5, "fontWeight": "bold", "color": "#d62728"},
+      "mark": {"type": "text", "dy": 6.5,"font": "Arial", "color": "#d62728"},
       "encoding": {
         "x": {"datum": {"year": 2020, "month": 3, "date": 1}, "type": "temporal"},
         "y": {"datum": 118.8, "type": "quantitative"},
@@ -64,7 +64,7 @@
       }
     },
     {
-      "mark": {"type": "text", "dy": -60, "dx": -20, "fontWeight": "bold", "color": "#ff7f0e"},
+      "mark": {"type": "text", "dy": -60, "dx": -28, "font": "Arial", "color": "#ff7f0e"},
       "encoding": {
         "x": {"datum": {"year": 2022, "month": 0, "date": 1}, "type": "temporal"},
         "y": {"datum": 123.6, "type": "quantitative"},
