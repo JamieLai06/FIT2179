@@ -10,7 +10,8 @@
     "text": "Explore CPI Trends by Category",
     "subtitle": "Sub-category inflation trends over time (2020-2026)",
     "anchor": "start",
-    "color": "#1a365d",
+    "fontSize": 18,
+    "color": "#000000",
     "font": "Serif"
   },
   "data": {
