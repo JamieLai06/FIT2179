@@ -9,7 +9,7 @@
     "subtitle": "Average CPI growth across spending categories",
     "anchor": "start",
     "fontSize": 18,
-    "color": "#1a365d",
+    "color": "#000000",
     "font": "Serif"
   },
   "width": "container",
