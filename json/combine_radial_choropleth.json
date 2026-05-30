@@ -18,7 +18,7 @@
       "layer": [
         {
           "data": {"sphere": true},
-          "mark": {"type": "geoshape", "fill": "#f0f8ff"}
+          "mark": {"type": "geoshape", "fill": "#d9eaf7"}
         },
         {
           "data": {"graticule": {"step": [40, 40]}},
