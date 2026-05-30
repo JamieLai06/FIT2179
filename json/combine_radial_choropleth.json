@@ -112,7 +112,12 @@
         "color": {
           "field": "Country",
           "type": "nominal",
-          "scale": {"scheme": "category20b"},
+          "scale": {
+          "range": [
+            "#eeca3b", "#b279a2", "#F5C2EC", "#E7E773","#E7B573",
+           "#A34F00", "#ADAAF0", "#9c755f", "#bab0ac", "#AAC0F0"
+          ]
+        },
           "sort": {"field": "Cost_Index", "order": "descending"},
           "legend": {
             "title": "Country",
