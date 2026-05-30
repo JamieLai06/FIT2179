@@ -4,7 +4,7 @@
     "type": "fit",
     "contains": "padding"
   },
-  "padding": {"top": 10, "bottom": 0, "left": 10, "right": 20}, 
+  "padding": {"top": 10, "bottom": 10, "left": 10, "right": 10}, 
   "width": "container",
   "height": 450,
   "data": {
