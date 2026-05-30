@@ -10,7 +10,8 @@
     "text": "Explore Inflation by Sub-category",
     "subtitle": "Average CPI across detailed spending categories (2020-2026)",
     "anchor": "start",
-    "color": "#1a365d"
+    "color": "#1a365d",
+    "font": "Serif"
   },
   "data": {
     "url": "https://raw.githubusercontent.com/JamieLai06/FIT2179/main/dataset/cleaned_cpi_3d_categorized.csv"
