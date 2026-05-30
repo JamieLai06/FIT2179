@@ -14,7 +14,7 @@
     "text": "2026 Budget Hierarchy: Sub-category CPI Breakdown",
     "subtitle": "Area represents CPI Index | Hover for details",
     "anchor": "start",
-    "font":"Serif"
+    "font":"Serif",
     "fontSize": 22,
     "fontWeight": "bold",
     "offset": 30
