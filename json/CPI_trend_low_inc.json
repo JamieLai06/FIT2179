@@ -8,7 +8,8 @@
   "title": {
     "text": "CPI Trend for Low-Income Households (2020-2026)",
     "anchor": "start",
-    "fontSize": 16
+    "fontSize": 16,
+    "font": "Serif"
   },
   "width": "container",
   "height": 450,
