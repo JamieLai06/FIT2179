@@ -54,7 +54,7 @@
         "color": {
           "field": "avg_index",
           "type": "quantitative",
-          "scale": {"scheme": "blues", "reverse": true},
+          "scale": {"scheme": "purples", "reverse": true},
           "title": "Avg Index"
         },
         "tooltip": [
