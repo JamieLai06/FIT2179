@@ -10,7 +10,8 @@
     "text": "The 6-Year Inflation Map (2020-2026)",
     "subtitle": "Average CPI Index by Category over Time",
     "anchor": "start",
-    "fontSize": 18
+    "fontSize": 18,
+    "font": "Serif"
   },
   "width": "container",
   "height": 500,
