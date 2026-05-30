@@ -5,10 +5,10 @@
     "contains": "padding"
   },
   "padding": {"top": 0, "bottom": 0, "left": 0, "right": 20}, 
-  "width": "container",
+  "width": 1000,
   "height": 440,
   "data": {
-    "url": "https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/ne_10m.json",
+    "url": "https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/ne_10m%20(5).json",
     "format": {
       "type": "topojson",
       "feature": "ne_10m_admin_1_states_provinces"
@@ -17,7 +17,7 @@
   "projection": {
     "type": "equirectangular",
     "center": [108.2, 4.05],
-    "scale": 3470
+    "scale": 3000
   },
   "layer": [
     {
