@@ -16,7 +16,8 @@
     "anchor": "start",
     "fontSize": 22,
     "fontWeight": "bold",
-    "offset": 30
+    "offset": 30,
+    "font": "Serif"
   },
 
   "data": [
