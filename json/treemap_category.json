@@ -1,14 +1,26 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
-
-  "autosize": {
-  "type": "fit",
-  "contains": "padding"
-},
   
-  "width": 1400,
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  },
+  
   "height": 600,
   "padding": {"top": 20, "left": 10, "right": 5, "bottom": 20},
+
+  "signals": [
+    {
+      "name": "width",
+      "init": "containerSize()[0] ? containerSize()[0] - 220 : 1100",
+      "on": [
+        {
+          "events": "window:resize",
+          "update": "containerSize()[0] ? containerSize()[0] - 220 : 1100"
+        }
+      ]
+    }
+  ],
 
   "title": {
     "text": "2026 Budget Hierarchy: Sub-category CPI Breakdown",
