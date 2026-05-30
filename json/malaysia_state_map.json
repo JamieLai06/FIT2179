@@ -5,14 +5,6 @@
     "contains": "padding"
   },
   "padding": {"top": 10, "bottom": 0, "left": 10, "right": 20}, 
-  "title": {
-    "text": "Cost of Living Across Malaysian States",
-    "subtitle": "Consumer Price Index (CPI) by state",
-    "anchor": "middle",
-    "fontSize": 18,
-    "fontWeight": "bold",
-    "offset": 20
-  },
   "width": "container",
   "height": 450,
   "data": {
