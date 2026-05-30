@@ -3,7 +3,7 @@
   "spacing": 20,
   "bounds": "flush",
   "title": {
-    "text":  "Click the legend at the radial chart to highlight the country",
+    "text": "Click the legend at the radial chart to highlight the country",
     "fontSize": 15,
     "color": "#000000",
     "anchor": "middle",
@@ -15,7 +15,8 @@
       "width": 900,
       "height": 450,
       "projection": {
-        "type": "equirectangular"},
+        "type": "equirectangular"
+      },
       "layer": [
         {
           "data": {"sphere": true},
@@ -27,8 +28,8 @@
         },
         {
           "data": {
-            "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
-            "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+            "url": "https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/ne_10m_admin_0_countries.json",
+            "format": {"type": "topojson", "feature": "ne_10m_admin_0_countries"}
           },
           "transform": [
             {
@@ -63,7 +64,11 @@
               }
             },
             "opacity": {
-              "condition": {"param": "countrySelection", "value": 1},
+              "condition": {
+                "param": "countrySelection", 
+                "empty": true,
+                "value": 1
+              },
               "value": 0.1
             },
             "tooltip": [
@@ -113,11 +118,11 @@
           "field": "Country",
           "type": "nominal",
           "scale": {
-          "range": [
-            "#eeca3b", "#b279a2", "#F5C2EC", "#E7E773","#E7B573",
-           "#A34F00", "#ADAAF0", "#9c755f", "#bab0ac", "#AAC0F0"
-          ]
-        },
+            "range": [
+              "#eeca3b", "#b279a2", "#F5C2EC", "#E7E773", "#E7B573",
+              "#A34F00", "#ADAAF0", "#9c755f", "#bab0ac", "#AAC0F0"
+            ]
+          },
           "sort": {"field": "Cost_Index", "order": "descending"},
           "legend": {
             "title": "Country",
