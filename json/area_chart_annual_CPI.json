@@ -9,11 +9,6 @@
   "width": "container",
   "height": 470,
 
-  "title": {
-    "text": "Malaysia's Rising Cost of Living (2016–2025)",
-    "subtitle": "Annual Consumer Price Index (CPI)"
-  },
-
   "data": {
     "url": "https://raw.githubusercontent.com/JamieLai06/FIT2179/main/dataset/cleaned_cpi_annual.csv"
   },
