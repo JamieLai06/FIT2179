@@ -8,7 +8,7 @@
   "width": "container",
   "height": 440,
   "data": {
-    "url": "https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/ne_10m%20(4).json",
+    "url": "https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/ne_10m.json",
     "format": {
       "type": "topojson",
       "feature": "ne_10m_admin_1_states_provinces"
