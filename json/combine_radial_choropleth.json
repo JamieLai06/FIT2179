@@ -5,6 +5,7 @@
   "title": {
     "text":  "Click the legend at the radial chart to highlight the country",
     "fontSize": 15,
+    "color": "#000000",
     "anchor": "middle",
     "dy": -10
   },
