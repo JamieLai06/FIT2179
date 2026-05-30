@@ -8,6 +8,8 @@
     "text": "Inflation Leaderboard: Rank of Yearly Price Increases",
     "subtitle": "Click the legend to highlight a specific category",
     "anchor": "start",
+    "fontSize": 18,
+    "color": "#000000",
     "font": "Serif"
   },
   "width": "container",
