@@ -1,19 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "autosize": {
-    "type": "fit",
-    "contains": "padding"
-  },
-  "padding": {"top": 0, "bottom": 0, "left": 0, "right": 20}, 
   "width": "container",
   "height": 440,
-  "data": {
-    "url": "https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/ne_10m.json",
-    "format": {
-      "type": "topojson",
-      "feature": "ne_10m_admin_1_states_provinces"
-    }
-  },
   "projection": {
     "type": "equirectangular",
     "center": [108.2, 4.05],
@@ -21,6 +9,32 @@
   },
   "layer": [
     {
+      "data": {
+        "url": "https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/ne_10m.json",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_10m_ocean"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#d9eaf7",
+        "stroke": null
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/ne_10m.json",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_10m_admin_1_states_provinces"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.properties.admin == 'Malaysia'"
+        }
+      ],
       "mark": {
         "type": "geoshape",
         "fill": "#ffffff",
@@ -29,7 +43,17 @@
       }
     },
     {
+      "data": {
+        "url": "https://raw.githubusercontent.com/JamieLai06/FIT2179/refs/heads/main/json/ne_10m.json",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_10m_admin_1_states_provinces"
+        }
+      },
       "transform": [
+        {
+          "filter": "datum.properties.admin == 'Malaysia'"
+        },
         {
           "lookup": "properties.name",
           "from": {
@@ -60,7 +84,8 @@
           },
           "legend": {
             "orient": "right",
-            "titleAnchor": "start"
+            "titleAnchor": "start",
+            "offset": 30
           }
         },
         "tooltip": [
@@ -82,10 +107,6 @@
   "config": {
     "view": {
       "stroke": null
-    },
-    "cell": {
-      "stroke": null
-    },
-    "background": "#d9eaf7"
+    }
   }
 }
