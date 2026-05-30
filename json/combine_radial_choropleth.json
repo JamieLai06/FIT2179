@@ -3,7 +3,6 @@
   "spacing": 20,
   "bounds": "flush",
   "title": {
-    "text": "Global Cost of Living Analysis 2026",
     "subtitle": "Click the legend at the radial chart to highlight the country",
     "fontSize": 20,
     "anchor": "middle",
