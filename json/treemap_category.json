@@ -6,7 +6,7 @@
   "contains": "padding"
 },
   
-  "width": 1200,
+  "width": 1000,
   "height": 600,
   "padding": {"top": 20, "left": 10, "right": 5, "bottom": 20},
 
