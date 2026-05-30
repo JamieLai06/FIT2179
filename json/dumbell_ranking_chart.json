@@ -7,7 +7,8 @@
   "title": {
     "text": "Inflation Leaderboard: Rank of Yearly Price Increases",
     "subtitle": "Click the legend to highlight a specific category",
-    "anchor": "start"
+    "anchor": "start",
+    "font": "Serif"
   },
   "width": "container",
   "height": 450,
