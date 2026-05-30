@@ -3,22 +3,22 @@
   "spacing": 20,
   "bounds": "flush",
   "title": {
-    "subtitle": "Click the legend at the radial chart to highlight the country",
-    "fontSize": 20,
+    "text":  "Click the legend at the radial chart to highlight the country",
+    "fontSize": 15,
     "anchor": "middle",
     "dy": -10
   },
   "hconcat": [
     {
       "title": "Geographic Distribution",
-      "width": 880,
+      "width": 900,
       "height": 450,
       "projection": {
-        "type": "equirectangular"      },
+        "type": "equirectangular"},
       "layer": [
         {
           "data": {"sphere": true},
-          "mark": {"type": "geoshape", "fill": "#d9eaf7"}
+          "mark": {"type": "geoshape", "fill": "#f0f8ff"}
         },
         {
           "data": {"graticule": {"step": [40, 40]}},
@@ -51,7 +51,15 @@
               "field": "Cost_Index",
               "type": "quantitative",
               "scale": {"scheme": "reds"},
-              "legend": null 
+              "legend": {
+                "title": "Cost of Living Index",
+                "orient": "bottom",
+                "direction": "horizontal",
+                "gradientLength": 250,
+                "gradientThickness": 15,
+                "titleFontSize": 12,
+                "labelFontSize": 10
+              }
             },
             "opacity": {
               "condition": {"param": "countrySelection", "value": 1},
@@ -103,12 +111,7 @@
         "color": {
           "field": "Country",
           "type": "nominal",
-          "scale": {
-  "range": [
-    "#F8AB63", "#F8D763", "#8BD15C", "#38C7C2", "#5CAAD1", 
-    "#5C7FD1", "#9880DB", "#C680DB", "#D15CBA", "#857C26"
-  ]
-},
+          "scale": {"scheme": "category20b"},
           "sort": {"field": "Cost_Index", "order": "descending"},
           "legend": {
             "title": "Country",
